@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env*
+!.env.example
+.vercel/
+.vite/
+.vite-cache/
+outputs/
+*.log
+*.tsbuildinfo
+.DS_Store

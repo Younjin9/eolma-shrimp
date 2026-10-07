@@ -57,8 +57,10 @@ test('reviewed local sources cover three regions and keep pickup conditions expl
  const seoul=repository.listings({seafoodId:'shrimp',region:'서울특별시'})
  const gyeonggi=repository.listings({seafoodId:'shrimp',region:'경기도'})
  const busan=repository.listings({seafoodId:'shrimp',region:'부산광역시'})
- assert.equal(seoul.length,6); assert.equal(gyeonggi.length,2); assert.equal(busan.length,1)
+ assert.equal(seoul.length,7); assert.equal(gyeonggi.length,2); assert.equal(busan.length,1)
  assert.equal(busan[0].perKg,33000); assert.match(busan[0].note,/온라인 주문 후 방문 수령/)
  assert.equal(seoul.find(x=>x.name==='자매수산').perKg,35000)
- assert.ok([...seoul,...gyeonggi,...busan].filter(x=>!x.recordId.startsWith('legacy-')).every(x=>x.sourceUrl && x.condition==='활새우'))
+ assert.ok([...seoul,...gyeonggi,...busan].filter(x=>!x.recordId.startsWith('legacy-')).every(x=>x.sourceUrl && (x.condition==='활새우' || x.sellerId==='hyeongje')))
 })
+
+test('형제수산 raw shrimp stays distinct from verified live shrimp',async()=>{const {repository}=await import('../src/shops.ts');const item=repository.listings({seafoodId:'shrimp',region:'서울특별시'}).find(x=>x.sellerId==='hyeongje');assert.equal(item.perKg,40000);assert.equal(item.comparisonKey,null);assert.match(item.condition,/활 상태 미확인/);assert.equal(item.phone,'0507-1333-8888')})

@@ -203,3 +203,8 @@ export const reviewedRecords: PriceRecordData[] = [
     "note": "온라인 주문 후 방문 수령 기준; 현장 직접구매 가격은 미확인입니다. 쿠폰 적용 29,700원은 비교 금액에서 제외. 택배비 4,000원(후기), 활 상태 도착 여부 문의. 매장 앞 주차 가능, 대중교통 접근은 불편하다는 후기입니다."
   }
 ]
+
+// Raw shrimp review: alive status and exact review/purchase date are unverified.
+reviewedSellers.push({id:'hyeongje',name:'형제수산',marketId:'garak',location:'가락몰 수산판매동 1층 A28호 · 매장 정보 기준',phone:'0507-1333-8888',visitPurchase:true,shipping:null})
+reviewedProducts.push({id:'reviewed-hyeongje',seafoodId:'shrimp',species:'종류 미확인',origin:'원산지 미확인',condition:'생새우 · 활 상태 미확인',size:'크기 미확인'})
+reviewedRecords.push({id:'reviewed-hyeongje-2026-10-07-check',sellerId:'hyeongje',productId:'reviewed-hyeongje',price:40000,weightGrams:1000,unit:'1kg',reviewStatus:'reviewed',observedAt:null,publishedAt:null,sourceLabel:'방문 후기 · 활 상태 미확인',dateLabel:'후기 날짜 미확인 · 자료 확인 2026.10.07',sourceDescription:'다이닝코드 방문 후기에 생새우 1kg 40,000원, 조금 작은 새우 1kg 35,000원이 기록되어 있습니다. 살아 있는 상태인지와 정확한 후기·구매 날짜는 확인되지 않았습니다.',sourceUrl:'https://www.diningcode.com/profile.php?rid=r7giV7FbMDKR',note:'활새우 구매 가능 여부와 오늘 가격을 전화로 확인해주세요. 작은 새우 35,000원은 별도 크기 조건이며 같은 품질 가격으로 비교하지 않습니다. 식당 조리비·상차림비 포함 여부는 미확인입니다.'})

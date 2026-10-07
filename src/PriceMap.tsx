@@ -68,19 +68,19 @@ export default function PriceMap({
           // DOM nodes keep text separate from HTML and preserve keyboard activation.
           const bubble = document.createElement("button")
           bubble.type = "button"
-          bubble.className = "price-bubble"
+          bubble.className = "map-market-pin"
           bubble.setAttribute(
             "aria-label",
             `${market.name}, ${priceRange(shops)}, ${shops.length}개 상품 가격 보기`,
           )
           const name = document.createElement("span")
           name.className = "bubble-market"
-          name.textContent = market.name
+          name.textContent = market.name.replace("농수산물시장", "시장").replace("수산시장", "시장").replace(" 직판 판매처", "").replace(" 판매처", "")
           const price = document.createElement("strong")
           price.textContent = priceRange(shops)
           const count = document.createElement("small")
           count.textContent = `${shops.length}곳 · 기록된 가격 보기 ›`
-          bubble.append(name, price, count)
+          bubble.append(name)
           bubble.onclick = () => setSelected(market.id)
           overlays.push(
             new maps.CustomOverlay({
@@ -93,13 +93,13 @@ export default function PriceMap({
           )
         })
         fitMarkets.current = () => {
-          if (valid.length > 1) map.setBounds(bounds, 110, 110, 60, 110)
+          if (valid.length > 1) map.setBounds(bounds, 55, 55, 45, 55)
           else map.setCenter(valid[0].position!)
         }
         fitMarkets.current()
         observer = new ResizeObserver(() => {
           map.relayout()
-          if (valid.length > 1) map.setBounds(bounds, 110, 110, 60, 110)
+          if (valid.length > 1) map.setBounds(bounds, 55, 55, 45, 55)
           else map.setCenter(valid[0].position!)
         })
         observer.observe(element)
@@ -232,7 +232,7 @@ export default function PriceMap({
         <span>
           {missing > 0
             ? `${missing}개 시장의 위치를 찾지 못했어요. 가게 목록을 이용해주세요.`
-            : "같은 시장의 가게는 한 말풍선으로 모아 보여드려요."}
+            : "시장 표시를 누르면 아래에서 가게별 가격을 볼 수 있어요."}
         </span>
         <small>사용자 제보·후기 당시 가격 · 오늘 가격은 방문 전 확인</small>
       </div>

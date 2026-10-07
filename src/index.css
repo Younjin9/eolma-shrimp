@@ -283,3 +283,20 @@ main { max-width: 1180px; margin: auto; padding: 26px 24px 64px; }
 /* Display the supplied logo without its outer screenshot margin. */
 .brand-logo { width:44px; height:44px; border-radius:12px; overflow:hidden; flex-shrink:0; position:relative; }
 .brand-logo img { position:absolute; width:144.55%; max-width:none; height:auto; left:-26.53%; top:-15.71%; }
+
+/* Keep the map sized by its container, including stacked layouts. */
+.price-map { width:100%; }
+.map-stage { min-height:0; height:clamp(340px, 43vw, 480px); }
+.map-market-pin { border:2px solid #fff; border-radius:999px; padding:7px 10px; background:#ed622d; color:white; box-shadow:0 2px 8px #42302135; cursor:pointer; white-space:nowrap; font:700 12px/1.2 inherit; }
+.map-market-pin .bubble-market { color:inherit; font-size:12px; }
+.map-market-pin:hover,.map-market-pin:focus-visible { background:#bc3e15; outline:2px solid #ed622d; outline-offset:2px; }
+@media(max-width:1100px) {
+ .content-grid { grid-template-columns:minmax(0,1fr); min-height:0; }
+ .price-map { align-self:stretch; }
+ .map-stage { height:380px; min-height:0; }
+ .shop-list { min-width:0; }
+}
+@media(max-width:500px) {
+ .map-stage { height:340px; }
+ .map-heading h3 { font-size:16px; }
+}

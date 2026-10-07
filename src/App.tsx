@@ -501,11 +501,7 @@ export default function App() {
       <header>
         <div className="header-inner">
           <div className="brand">
-            <div className="brand-mark">
-              <span />
-              <span />
-              <span />
-            </div>
+            <div className="brand-logo"><img src="/shrimp-logo.png" alt="" /></div>
             <div>
               <h1>얼마새우</h1>
               <p>우리 동네 활새우, 어디서 얼마에?</p>

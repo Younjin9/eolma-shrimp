@@ -300,3 +300,6 @@ main { max-width: 1180px; margin: auto; padding: 26px 24px 64px; }
  .map-stage { height:340px; }
  .map-heading h3 { font-size:16px; }
 }
+
+.map-market-pin { display:flex; align-items:center; gap:6px; }
+.map-market-pin .market-count { padding:2px 5px; border-radius:999px; background:#ffffff26; font-size:10px; line-height:1.2; font-weight:700; }

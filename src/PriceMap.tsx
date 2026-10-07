@@ -80,7 +80,11 @@ export default function PriceMap({
           price.textContent = priceRange(shops)
           const count = document.createElement("small")
           count.textContent = `${shops.length}곳 · 기록된 가격 보기 ›`
-          bubble.append(name)
+          const shopCount = new Set(shops.map(shop => shop.sellerId)).size
+          const badge = document.createElement("small")
+          badge.className = "market-count"
+          badge.textContent = `${shopCount}곳`
+          bubble.append(name, badge)
           bubble.onclick = () => setSelected(market.id)
           overlays.push(
             new maps.CustomOverlay({
